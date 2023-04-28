@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    
+    <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
+ <title>AswiniMuttineni</title>
+</head>
+<style>
+    
+body {
+  margin: 0;
+  padding: 0;
+}
+.background-image
+{
+  background-image: url(3.jpeg);
+  height: 8%;
+  background-repeat: no-repeat;
+
+  background-size: cover;
+}
+.container{
+    display:grid;
+    grid-gap:3px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "image aboutMe aboutMe"
+    "edu edu edu"
+    "Projects Projects projects"
+    "P1 P2 P3"
+    "exp exp exp"
+    "blog blog blog"
+    "blog1 blog2 blog3"
+    "Contact Contact Contact";
+}
+      
+      #menuToggle {
+        display: block;
+        position: relative;
+        top: 30px;
+        left: 50px;  
+        z-index: 1;  
+        -webkit-user-select: none;
+        -moz-user-select: none;
+         -ms-user-select: none;
+             user-select: none;
+      }
+      
+      #menuToggle a {
+        text-decoration: none;
+        color: #232323;
+
+      }
+      
+      #menuToggle a:hover {
+        color: #20a04d;
+      }
+      
+      #menuToggle input {
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: absolute;  
+        padding: 0;
+        cursor:context-menu;  
+        opacity: 0;
+        z-index: 2; 
+        -webkit-touch-callout: none;
+      }
+      
+      #menuToggle label {
+        position: relative;
+        display: block;
+        width: 30px;
+        height: 30px;
+      }
+      #menuToggle label span {
+        display: none;
+      }
+      #menuToggle label div {
+        display: block;
+        width: 30px;
+        height: 2px;
+        margin-bottom: 6px;
+        position: relative;
+        background: rgb(43, 43, 92);
+        border-radius: 3px;  
+        z-index: 1;  
+
+      }
+      #menu {
+        position: absolute;
+        list-style-type: none;
+        margin: -5px 0 0 -50px;
+        width: 200px;
+        padding: 50px;
+        background: #EFEBE0;
+        left: -100lvh;
+      }
+      
+      #menu li {
+        padding: 10px;
+        font-size: 24px;
+      }
+      #menuToggle input:checked ~ ul {
+        left: 0;
+      }      
+  img{
+    position:absolute;
+    height:200px;
+    width:200px;
+    border-radius: 30px;
+    left:50px;
+    top:150px;
+}
+
+#aboutMe{
+    grid-area: aboutMe;
+    text-align: justify;
+    justify-content: center;
+    position: relative;
+    padding: 8rem;
+    top:40px;
+    font-size: medium;
+}
+
+#Education{
+    
+    padding-top: 12vh;
+    grid-area:edu;
+  
+}
+
+#Projects{
+  font-size: large;
+  padding-top: 15vh;
+  grid-area:Projects;
+  left: 0px;
+  padding-top: 15vh;
+  position:relative;
+}
+
+#P1{
+  
+    grid-area:P1;
+}
+#P2{
+    
+    grid-area:P2;
+}
+#P3{
+    
+    grid-area:P3;
+}
+
+
+#Experience{
+    
+  padding-top: 15vh;  
+  grid-area:exp;
+}
+
+#Blogs{
+
+  padding-top: 15vh;  
+  grid-area:blog;
+  
+}
+    #blog1{
+      
+      grid-area:blog1;
+}
+#blog2{
+  
+  grid-area:blog2;
+}
+#blog3{
+  
+  grid-area:blog3;
+}
+#Contact{
+    grid-area:Contact;
+    padding-top: 5px;
+    color:azure;
+    background-color: rgb(43, 43, 92);
+    
+    text-align: center;
+}
+
+</style>
+<body>
+    <div class="background-image">
+    <div class="container">
+    <nav class="navigation">
+        <div id="menuToggle"> 
+          <input name="toggle" type="checkbox" />
+          <label for="toggle">
+            <span>menu</span>
+            <div></div>
+            <div></div>
+            <div></div>
+          </label>
+          <ul id="menu">
+            <a href="#aboutMe"><li>AboutMe</li></a>
+            <a href="#Education"><li>Education</li></a>
+            <a href="#Projects"><li>Projects</li></a>
+            <a href="#Experience"><li>Experience</li></a>
+            <a href="#Blogs"><li>Blogs</li></a>
+            <a href="#Contact"><li>Contact</li></a>
+          </ul>
+        </div>
+      </nav>
+      <div id="name"></div>
+      <div id="image"> 
+              <img src="aswini.png" alt="No Image Found"><br>
+          
+      </div>
+<div id="aboutMe">
+
+            <div>
+                <h2 style="color:rgb(43,43,92)">About</h2>
+              <p>I am Aswini Muttineni and pursuing my master's in Computer Science at University of NewHaven.This is my sample webpage creating to provide my interests and experience details. </p>
+            </div>
+
+</div>
+<div id="Education">
+    <div >
+        <h2 style="color:rgb(43,43,92)">Education</h2>
+    <p>
+        &nbsp; &nbsp;University of New haven, CT, 06516<br>
+         &nbsp; &nbsp; &nbsp;@Masters in Computer Science and Engineering. <br>
+         <br>
+         &nbsp; &nbsp;QIS College of Engineering and Technology, Ongole.<br>
+         &nbsp; &nbsp; &nbsp;@Bachelor's in Computer Science Engineering.<br>
+            
+      </p>
+    </div>
+
+</div>
+
+
+<div id="Projects">
+<h2 style="color:rgb(43,43,92)">Projects</h2></div>
+<div id="P1">
+
+<ul>
+    <b><u>Cargill:</u></b> 
+    <p>Cargill, Incorporated, is a privately held American global food corporation based in Minnetonka, Minnesota, and incorporated in Wilmington, Delaware. Founded in 1865, it is the largest privately held corporation in the United States in terms of revenue.
+    </p>
+</ul>
+</div>
+<div id="P2">
+
+<ul>
+    <b><u>Food Crisis:</u></b> 
+    <p>The global food crisis is a stark reminder of the fragility of the global food system. The Global Food Crisis: Governance Challenges and Opportunities captures the debate about how to go forward and examines the implications of the crisis for food security in the world's poorest countries, both for the global environment and for the global rules and institutions that govern food and agriculture. </p>
+</ul>
+</div>
+<div id="P3">
+<ul>
+    <b><u>Lorem:</u></b> 
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut  arcu felis. Amet venenatis urna cursus eget nunc scelerisque.Amet venenatis urna cursus eget nunc scelerisque. Vulputate enim nulla aliquet porttitor lacus </p>
+</ul>
+</div>
+
+<div id="Experience">
+    <div id="exp">
+    <h2 style="color:rgb(43,43,92)">Experience</h2>
+
+<ul>
+    <h3><b>Company: Cognizant Technology Solutions Pvt Ltd. </b> </h3>
+    <strong>Position: Associate Level</strong> 
+    <ul><li><p> A qualified professional having 2.5 years of experience in SAP Basis and Commonapps.<br>
+        &nbsp;&nbsp;Involved in all production application activities.
+        <li> I have worked on application upgrade activities and system refresh activity.</li>
+
+    </p>
+    </li></ul>
+</div>
+</div>
+
+<div id="Blogs">
+    <h1 style="color:rgb(43,43,92)">Blogs</h1></div>
+<div id="blog1">
+<h4>Blog1</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus dictum at tempor commodo ullamcorper a. Amet venenatis urna cursus eget nunc scelerisque. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.</p>
+</div>
+<div id="blog2">
+    <h4>Blog2</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus dictum at tempor commodo ullamcorper.Amet venenatis urna cursus eget nunc scelerisque. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.</p>
+</div>
+<div id="blog3">
+    <h4>Blog3</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut  arcu felis. Amet venenatis urna cursus eget nunc scelerisque. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Faucibus nisl tincidunt eget nullam. Felis bibendum ut tristique.</p>
+</div>
+</div>
+
+<footer id="Contact">
+    <h4><u>Contact:</u></h4><br>
+
+    <a href="https://www.facebook.com/"><iconify-icon icon="icon-park:facebook" style="width: 30px; height: 20px; margin: 0 5px;"></iconify-icon>
+    </a>
+
+    <a href="https://www.twitter.com/"><iconify-icon icon="icon-park:twitter" style="width: 30px; height: 20px; margin: 0 5px;"></iconify-icon>
+    </a>
+    <a href="https://www.google.com/gmail/"><iconify-icon icon="logos:google-gmail" style="width: 30px; height: 20px; margin: 0.5px;"></iconify-icon>
+    </a>
+    <a href="https://www.linkedin.com/feed/"><iconify-icon icon="logos:linkedin" style="width: 30px; height: 20px; margin: 0.5px;"></iconify-icon>
+    </a>
+    </div>
+</footer>
+</div>
+</div>   
+</body>
+
+</html>
