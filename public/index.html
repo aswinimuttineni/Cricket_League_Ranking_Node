@@ -1,319 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>AswiniMuttineni_FinalProject</title>
+    <script type="text/javascript" src="script.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
- <title>AswiniMuttineni</title>
+    <style>
+        body {
+            font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .background-image {
+            background-color: rgb(191, 230, 222);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-areas:
+                "topnav topnav topnav"
+                "aboutme info info"
+                "education education education"
+                "projects projects projects"
+                "experience experience experience"
+                "blogs blogs blogs"
+                "contact contact contact";
+            grid-gap: 0.5rem;
+            grid-template-rows: 100px;
+            
+
+        }
+
+        #education {
+            grid-area: education;
+            padding: 15px;
+        }
+
+        #experience {
+            grid-area: experience;
+            padding: 15px;
+        }
+
+        #experience ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #experience ul li {
+            line-height: 25px;
+        }
+
+        #menuToggle {
+            display: block;
+            position: relative;
+            top: 30px;
+            left: 0px;
+            z-index: 1;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        #menuToggle a {
+            text-decoration: none;
+            color: #232323;
+
+        }
+
+        #menuToggle a:hover {
+            color: #20a04d;
+        }
+
+        #menuToggle input {
+            display: block;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            padding: 0;
+            cursor: context-menu;
+            opacity: 0;
+            z-index: 2;
+            -webkit-touch-callout: none;
+        }
+
+        #menuToggle label {
+            position: relative;
+            display: block;
+            width: 30px;
+            height: 30px;
+        }
+
+        #menuToggle label span {
+            display: none;
+        }
+
+        #menuToggle label div {
+            display: block;
+            width: 30px;
+            height: 2px;
+            margin-bottom: 6px;
+            position: relative;
+            background: rgb(43, 43, 92);
+            border-radius: 3px;
+            z-index: 1;
+
+        }
+
+        #menu {
+            position: absolute;
+            list-style-type: none;
+            margin: -5px 0 0 -50px;
+            width: 200px;
+            padding: 50px;
+            background: #fff;
+            left: -100lvh;
+        }
+
+        #menu li {
+            padding: 10px;
+            font-size: 24px;
+        }
+
+        #menuToggle input:checked~ul {
+            left: 0;
+        }
+
+        .heading {
+            background-color: rgb(10, 9, 9);
+            padding: 10px 5px;
+            color: white;
+            font-size: 15px;
+        }
+
+        nav {
+            grid-area: topnav;
+            padding: 0 15px;
+        }
+
+        #about {
+            grid-area: aboutme;
+            padding: 15px;
+        }
+
+        .about_img_container {
+            padding-top: 15px;
+        }
+
+        .about_img_container img {
+            height: 15rem;
+            width: 15rem;
+        }
+
+        #info {
+            grid-area: info;
+            padding: 15px;
+        }
+
+        #info p {
+            margin: 0;
+            padding-top: 15px;
+            line-height: 25px;
+        }
+
+        #projects {
+            grid-area: projects;
+            padding: 15px;
+        }
+
+        #blogs {
+            grid-area: blogs;
+            padding: 15px;
+        }
+
+        #blogs ul,
+        #projects ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 0;
+        }
+
+        .blog {
+            border-radius: 10px;
+            padding: 15px;
+            width: 250px;
+            background-color: #fff;
+            box-shadow: rgb(14 30 37 / 12%) 0px 2px 4px 0px, rgb(14 30 37 / 32%) 0px 2px 16px 0px;
+        }
+
+        .blog a {
+            float: right;
+        }
+
+        .blogs_container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 15px 0;
+            justify-content: space-between;
+        }
+
+        #contact {
+            grid-area: contact;
+            background-color: rgb(43, 43, 92);
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        #contact h3 {
+            margin-top: 0;
+        }
+
+        .contact_links a {
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width:900px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 0.2em;
+                grid-template-areas:
+                    "topnav"
+                    "aboutme"
+                    "info"
+                    "education"
+                    "projects"
+                    "experience"
+                    "blogs"
+                    "contact";
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .blog {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-<style>
-    
-body {
-  margin: 0;
-  padding: 0;
-}
-.background-image
-{
-  background-image: url(3.jpeg);
-  height: 8%;
-  background-repeat: no-repeat;
 
-  background-size: cover;
-}
-.container{
-    display:grid;
-    grid-gap:3px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 
-    "image aboutMe aboutMe"
-    "edu edu edu"
-    "Projects Projects projects"
-    "P1 P2 P3"
-    "exp exp exp"
-    "blog blog blog"
-    "blog1 blog2 blog3"
-    "Contact Contact Contact";
-}
-      
-      #menuToggle {
-        display: block;
-        position: relative;
-        top: 30px;
-        left: 50px;  
-        z-index: 1;  
-        -webkit-user-select: none;
-        -moz-user-select: none;
-         -ms-user-select: none;
-             user-select: none;
-      }
-      
-      #menuToggle a {
-        text-decoration: none;
-        color: #232323;
-
-      }
-      
-      #menuToggle a:hover {
-        color: #20a04d;
-      }
-      
-      #menuToggle input {
-        display: block;
-        width: 30px;
-        height: 30px;
-        position: absolute;  
-        padding: 0;
-        cursor:context-menu;  
-        opacity: 0;
-        z-index: 2; 
-        -webkit-touch-callout: none;
-      }
-      
-      #menuToggle label {
-        position: relative;
-        display: block;
-        width: 30px;
-        height: 30px;
-      }
-      #menuToggle label span {
-        display: none;
-      }
-      #menuToggle label div {
-        display: block;
-        width: 30px;
-        height: 2px;
-        margin-bottom: 6px;
-        position: relative;
-        background: rgb(43, 43, 92);
-        border-radius: 3px;  
-        z-index: 1;  
-
-      }
-      #menu {
-        position: absolute;
-        list-style-type: none;
-        margin: -5px 0 0 -50px;
-        width: 200px;
-        padding: 50px;
-        background: #EFEBE0;
-        left: -100lvh;
-      }
-      
-      #menu li {
-        padding: 10px;
-        font-size: 24px;
-      }
-      #menuToggle input:checked ~ ul {
-        left: 0;
-      }      
-  img{
-    position:absolute;
-    height:200px;
-    width:200px;
-    border-radius: 30px;
-    left:50px;
-    top:150px;
-}
-
-#aboutMe{
-    grid-area: aboutMe;
-    text-align: justify;
-    justify-content: center;
-    position: relative;
-    padding: 8rem;
-    top:40px;
-    font-size: medium;
-}
-
-#Education{
-    
-    padding-top: 12vh;
-    grid-area:edu;
-  
-}
-
-#Projects{
-  font-size: large;
-  padding-top: 15vh;
-  grid-area:Projects;
-  left: 0px;
-  padding-top: 15vh;
-  position:relative;
-}
-
-#P1{
-  
-    grid-area:P1;
-}
-#P2{
-    
-    grid-area:P2;
-}
-#P3{
-    
-    grid-area:P3;
-}
-
-
-#Experience{
-    
-  padding-top: 15vh;  
-  grid-area:exp;
-}
-
-#Blogs{
-
-  padding-top: 15vh;  
-  grid-area:blog;
-  
-}
-    #blog1{
-      
-      grid-area:blog1;
-}
-#blog2{
-  
-  grid-area:blog2;
-}
-#blog3{
-  
-  grid-area:blog3;
-}
-#Contact{
-    grid-area:Contact;
-    padding-top: 5px;
-    color:azure;
-    background-color: rgb(43, 43, 92);
-    
-    text-align: center;
-}
-
-</style>
 <body>
     <div class="background-image">
-    <div class="container">
-    <nav class="navigation">
-        <div id="menuToggle"> 
-          <input name="toggle" type="checkbox" />
-          <label for="toggle">
-            <span>menu</span>
-            <div></div>
-            <div></div>
-            <div></div>
-          </label>
-          <ul id="menu">
-            <a href="#aboutMe"><li>AboutMe</li></a>
-            <a href="#Education"><li>Education</li></a>
-            <a href="#Projects"><li>Projects</li></a>
-            <a href="#Experience"><li>Experience</li></a>
-            <a href="#Blogs"><li>Blogs</li></a>
-            <a href="#Contact"><li>Contact</li></a>
-          </ul>
-        </div>
-      </nav>
-      <div id="name"></div>
-      <div id="image"> 
-              <img src="aswini.png" alt="No Image Found"><br>
-          
-      </div>
-<div id="aboutMe">
+        <div class="container">
+            <nav class="navigation">
+                <div id="menuToggle">
+                    <input name="toggle" type="checkbox" />
+                    <label for="toggle">
+                        <span>menu</span>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </label>
+                    <ul id="menu">
+                        <a href="#about">
+                            <li>About</li>
+                        </a>
+                        <a href="#education">
+                            <li>Education</li>
+                        </a>
+                        <a href="#projects">
+                            <li>Projects</li>
+                        </a>
+                        <a href="#experience">
+                            <li>Experience</li>
+                        </a>
+                        <a href="#blogs">
+                            <li>Blogs</li>
+                        </a>
+                        <a href="#contact">
+                            <li>Contact</li>
+                        </a>
+                    </ul>
+                </div>
+            </nav>
 
-            <div>
-                <h2 style="color:rgb(43,43,92)">About</h2>
-              <p>I am Aswini Muttineni and pursuing my master's in Computer Science at University of NewHaven.This is my sample webpage creating to provide my interests and experience details. </p>
+            <div id="about">
+                <div class="heading">
+                    ASWINI MUTTINENI
+                </div>
+                <div>
+                    <div class="about_img_container">
+                        <img src="https://imageio.forbes.com/blogs-images/rainerzitelmann/files/2019/06/E0MG76-e1560965378507-1200x1270.jpg?format=jpg&width=960"
+                            alt="My Pic">
+                    </div>
+                </div>
             </div>
 
-</div>
-<div id="Education">
-    <div >
-        <h2 style="color:rgb(43,43,92)">Education</h2>
-    <p>
-        &nbsp; &nbsp;University of New haven, CT, 06516<br>
-         &nbsp; &nbsp; &nbsp;@Masters in Computer Science and Engineering. <br>
-         <br>
-         &nbsp; &nbsp;QIS College of Engineering and Technology, Ongole.<br>
-         &nbsp; &nbsp; &nbsp;@Bachelor's in Computer Science Engineering.<br>
-            
-      </p>
+            <div id="info">
+                <div class="heading">ABOUT</div>
+                <div>
+                    <p>
+                        I am <b>Aswini Muttineni</b> and pursuing my master's in Computer Science at University of
+                        NewHaven.This is my
+                        sample webpage creating to provide my interests and experience details.
+                    </p>
+
+                </div>
+            </div>
+
+            <div id="education">
+                <div class="heading">
+                    EDUCATION
+                </div>
+                <ul>
+                    <li> &nbsp; &nbsp;University of New haven, CT, 06516<br>
+                        &nbsp; &nbsp; &nbsp;@Masters in Computer Science and Engineering. <br>
+                    </li>
+                    <li> &nbsp; &nbsp;QIS College of Engineering and Technology, Ongole.<br>
+                        &nbsp; &nbsp; &nbsp;@Bachelor's in Computer Science Engineering.<br></li>
+                </ul>
+            </div>
+
+            <div id="experience">
+                <div class="heading">
+                    EXPERIENCE
+                </div>
+                <div class="experience-content">
+                    <h3><b>Company: Cognizant Technology Solutions Pvt Ltd. </b> </h3>
+                    <strong>Position: Associate Level</strong>
+                    <ul>
+                        <li>I Never cared about dressing. My wife suggested me to dress more professionally while I was
+                            attending my
+                            1st conference. I replied "non one knows me there". Later times I Replied "Everyone knows me
+                            there". So
+                            no one bothered about my dressing, As I never did</li>
+                        <li> When Albert Einstein was working at Princeton university, one day he was going back home he
+                            forgot his
+                            home address. The driver of the cab did not recognize him. Einstein asked the driver if he
+                            knows
+                            Einstein's home. The driver said "Who does not know Einstein's address? Everyone in
+                            Princeton knows. Do
+                            you want to meet him?. Einstein replied "I am Einstein. I forgot my home address, can you
+                            take me there?
+                            "The driver dropped him to his home and did not even collect his fare from him.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="projects">
+                <div class="heading">
+                    PROJECTS
+                </div>
+                <ul>
+                    <div class="blog">
+                        <h4><u>Cargill:</u></h4>
+                        <p>Cargill, Incorporated, is a privately held American global food corporation based in
+                            Minnetonka, Minnesota,
+                            and incorporated in Wilmington, Delaware. Founded in 1865, it is the largest privately held
+                            corporation in
+                            the United States in terms of revenue.</p>
+                    </div>
+                    <div class="blog">
+                        <h4><u>Food Crisis:</u></h4>
+                        <p>The global food crisis is a stark reminder of the fragility of the global food system. The
+                            Global Food
+                            Crisis: Governance Challenges and Opportunities captures the debate about how to go forward
+                            and examines the
+                            implications of the crisis for food security in the world's poorest countries, both for the
+                            global
+                            environment and for the global rules and institutions that govern food and agriculture. </p>
+                    </div>
+                    <div class="blog">
+                        <h4><u>Lorem:</u></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            arcu felis.
+                            Amet venenatis urna cursus eget nunc scelerisque.Amet venenatis urna cursus eget nunc
+                            scelerisque. Vulputate
+                            enim nulla aliquet porttitor lacus </p>
+                    </div>
+                </ul>
+            </div>
+
+            <div id="blogs">
+                <div class="heading">
+                    BLOGS
+                </div>
+                <ul>
+                    <div class="blog">
+                        <h4>Blog1</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et
+                            dolore magna aliqua. Metus dictum at tempor commodo ullamcorper a. Amet venenatis urna
+                            cursus eget nunc
+                            scelerisque. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.</p>
+                    </div>
+                    <div class="blog">
+                        <h4>Blog2</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et
+                            dolore magna aliqua. Metus dictum at tempor commodo ullamcorper a. Amet venenatis urna
+                            cursus eget nunc
+                            scelerisque. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.</p>
+                    </div>
+                    <div class="blog">
+                        <h4>Blog3</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et
+                            dolore magna aliqua. Metus dictum at tempor commodo ullamcorper a. Amet venenatis urna
+                            cursus eget nunc
+                            scelerisque. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.</p>
+                    </div>
+                </ul>
+            </div>
+
+            <footer id="contact">
+                <h3>CONTACT US</h3>
+                <div class="contact_links">
+                    <a href="https://www.google.com/gmail/"><iconify-icon class="icon"
+                            icon="logos:google-gmail"></iconify-icon>
+                    </a>
+                    <a href="https://www.linkedin.com/"><iconify-icon class="icon"
+                            icon="skill-icons:linkedin"></iconify-icon>
+                    </a>
+                    <a href="https://www.facebook.com/"><iconify-icon class="icon"
+                            icon="icon-park:facebook"></iconify-icon>
+                    </a>
+                    <a href="https://www.twitter.com/"><iconify-icon class="icon"
+                            icon="icon-park:twitter"></iconify-icon>
+                    </a>
+                </div>
+            </footer>
+        </div>
     </div>
-
-</div>
-
-
-<div id="Projects">
-<h2 style="color:rgb(43,43,92)">Projects</h2></div>
-<div id="P1">
-
-<ul>
-    <b><u>Cargill:</u></b> 
-    <p>Cargill, Incorporated, is a privately held American global food corporation based in Minnetonka, Minnesota, and incorporated in Wilmington, Delaware. Founded in 1865, it is the largest privately held corporation in the United States in terms of revenue.
-    </p>
-</ul>
-</div>
-<div id="P2">
-
-<ul>
-    <b><u>Food Crisis:</u></b> 
-    <p>The global food crisis is a stark reminder of the fragility of the global food system. The Global Food Crisis: Governance Challenges and Opportunities captures the debate about how to go forward and examines the implications of the crisis for food security in the world's poorest countries, both for the global environment and for the global rules and institutions that govern food and agriculture. </p>
-</ul>
-</div>
-<div id="P3">
-<ul>
-    <b><u>Lorem:</u></b> 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut  arcu felis. Amet venenatis urna cursus eget nunc scelerisque.Amet venenatis urna cursus eget nunc scelerisque. Vulputate enim nulla aliquet porttitor lacus </p>
-</ul>
-</div>
-
-<div id="Experience">
-    <div id="exp">
-    <h2 style="color:rgb(43,43,92)">Experience</h2>
-
-<ul>
-    <h3><b>Company: Cognizant Technology Solutions Pvt Ltd. </b> </h3>
-    <strong>Position: Associate Level</strong> 
-    <ul><li><p> A qualified professional having 2.5 years of experience in SAP Basis and Commonapps.<br>
-        &nbsp;&nbsp;Involved in all production application activities.
-        <li> I have worked on application upgrade activities and system refresh activity.</li>
-
-    </p>
-    </li></ul>
-</div>
-</div>
-
-<div id="Blogs">
-    <h1 style="color:rgb(43,43,92)">Blogs</h1></div>
-<div id="blog1">
-<h4>Blog1</h4>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus dictum at tempor commodo ullamcorper a. Amet venenatis urna cursus eget nunc scelerisque. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.</p>
-</div>
-<div id="blog2">
-    <h4>Blog2</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Metus dictum at tempor commodo ullamcorper.Amet venenatis urna cursus eget nunc scelerisque. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor.</p>
-</div>
-<div id="blog3">
-    <h4>Blog3</h4>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut  arcu felis. Amet venenatis urna cursus eget nunc scelerisque. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor. Faucibus nisl tincidunt eget nullam. Felis bibendum ut tristique.</p>
-</div>
-</div>
-
-<footer id="Contact">
-    <h4><u>Contact:</u></h4><br>
-
-    <a href="https://www.facebook.com/"><iconify-icon icon="icon-park:facebook" style="width: 30px; height: 20px; margin: 0 5px;"></iconify-icon>
-    </a>
-
-    <a href="https://www.twitter.com/"><iconify-icon icon="icon-park:twitter" style="width: 30px; height: 20px; margin: 0 5px;"></iconify-icon>
-    </a>
-    <a href="https://www.google.com/gmail/"><iconify-icon icon="logos:google-gmail" style="width: 30px; height: 20px; margin: 0.5px;"></iconify-icon>
-    </a>
-    <a href="https://www.linkedin.com/feed/"><iconify-icon icon="logos:linkedin" style="width: 30px; height: 20px; margin: 0.5px;"></iconify-icon>
-    </a>
-    </div>
-</footer>
-</div>
-</div>   
 </body>
 
 </html>
