@@ -1,0 +1,64 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "rank": 1,
+            "team_name": "RR",
+            "matches": 5,
+            "wins": 4,
+            "losses": 1,
+            "points": 8,
+            "run_rate": "+1.354",
+            "recent_form": "W W W L W",
+            "team_image": "https://ssl.gstatic.com/onebox/media/sports/logos/turpQqyPRIMvuksLiSDSjQ_48x48.png" 
+        },
+        {
+            "id": 2,
+            "rank": 2,
+            "team_name": "LSG",
+            "matches": 5,
+            "wins": 3,
+            "losses": 2,
+            "points": 6,
+            "run_rate": "+0.761",
+            "recent_form": "L W W L W",
+            "team_image": "https://ssl.gstatic.com/onebox/media/sports/logos/b6uyRF-RX56muhQOv1-Z3A_48x48.png" 
+        },
+        {
+            "id": 3,
+            "rank": 3,
+            "team_name": "GT",
+            "matches": 5,
+            "wins": 3,
+            "losses": 2,
+            "points": 6,
+            "run_rate": "+0.192",
+            "recent_form": "L W L W W",
+            "team_image": "https://ssl.gstatic.com/onebox/media/sports/logos/24uPDj4LAP1wpSEGHZWRDQ_48x48.png" 
+        },
+        {
+            "id": 4,
+            "rank": 4,
+            "team_name": "PBKS",
+            "matches": 5,
+            "wins": 3,
+            "losses": 2,
+            "points": 6,
+            "run_rate": "-0.109",
+            "recent_form": "W L L W W",
+            "team_image": "https://ssl.gstatic.com/onebox/media/sports/logos/HxbhoKfAgDZogey6S9E4bA_48x48.png" 
+        },
+        {
+            "id": 5,
+            "rank": 5,
+            "team_name": "KKR",
+            "matches": 5,
+            "wins": 2,
+            "losses": 3,
+            "points": 4,
+            "run_rate": "+0.320",
+            "recent_form": "L L W W L",
+            "team_image": "https://ssl.gstatic.com/onebox/media/sports/logos/kkwGQB9t8WtGPx9WuiBGOw_48x48.png" 
+        }
+    ]
+}
