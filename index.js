@@ -5,19 +5,7 @@ const { MongoClient } = require('mongodb');
 let responseData;
 let DB_NAME = "Cricket_League";
 let COLLECTION_NAME = "teams"
-async function main() {
-    const uri = `mongodb+srv://aswinimuttineni5k1:AsHuvs123@cluster0.fvebl4i.mongodb.net/Cricket_League?retryWrites=true&w=majority`;
-    const client = new MongoClient(uri);
-    try {
-        await client.connect();
-        responseData = await getAllDataFromMongo(client)
-    } finally {
-        await client.close();
-    }
-}
-
-main().catch(console.error);
-
+const uri = `mongodb+srv://aswinimuttineni5k1:AsHuvs123@cluster0.fvebl4i.mongodb.net/Cricket_League?retryWrites=true&w=majority`;
 const server = http.createServer(async (req, res) => {
     if (req.url === '/') {
         fs.readFile(path.join(__dirname, 'public', 'index.html'), (err, content) => {
@@ -26,8 +14,15 @@ const server = http.createServer(async (req, res) => {
             res.end(content);
         });
     } else if (req.url === '/api') {
+        const client = new MongoClient(uri);
+    try {
+        await client.connect();
+        responseData = await getAllDataFromMongo(client)
         res.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
         res.end(JSON.stringify(responseData[0]))
+    } finally {
+        await client.close();
+    }
 
     } else {
         res.writeHead(404, { 'Content-Type': 'text/html' });
