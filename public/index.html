@@ -16,6 +16,7 @@
             font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         .background-image {
@@ -35,8 +36,77 @@
                 "contact contact contact";
             grid-gap: 0.5rem;
             grid-template-rows: 100px;
-            
 
+
+        }
+
+        .topnav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: black;
+            flex-wrap: wrap;
+            padding: 20px 2px;
+        }
+
+        .topnav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .topnav .logo {
+            color: #3c752f;
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .topnav a:hover {
+            background-color: #6ec661;
+            color: #B2DBD5;
+        }
+
+        .topnav a.active {
+            background-color: #2b6d44;
+            color: #B2DBD5;
+        }
+
+        .topnav .icon {
+            display: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:no-button) {
+                display: none;
+            }
+
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+
+
+            .topnav.responsive {
+                position: relative;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
         }
 
         #education {
@@ -232,6 +302,7 @@
         @media screen and (max-width:900px) {
             .container {
                 grid-template-columns: 1fr;
+                grid-template-rows: 1fr;
                 gap: 0.2em;
                 grid-template-areas:
                     "topnav"
@@ -249,6 +320,10 @@
             .blog {
                 width: 100%;
             }
+
+            .topnav .logo {
+                font-size: 35px;
+            }
         }
     </style>
 </head>
@@ -256,38 +331,17 @@
 <body>
     <div class="background-image">
         <div class="container">
-            <nav class="navigation">
-                <div id="menuToggle">
-                    <input name="toggle" type="checkbox" />
-                    <label for="toggle">
-                        <span>menu</span>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </label>
-                    <ul id="menu">
-                        <a href="#about">
-                            <li>About</li>
-                        </a>
-                        <a href="#education">
-                            <li>Education</li>
-                        </a>
-                        <a href="#projects">
-                            <li>Projects</li>
-                        </a>
-                        <a href="#experience">
-                            <li>Experience</li>
-                        </a>
-                        <a href="#blogs">
-                            <li>Blogs</li>
-                        </a>
-                        <a href="#contact">
-                            <li>Contact</li>
-                        </a>
-                    </ul>
-                </div>
+            <nav class="topnav" id="navbar">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#blogs">Blogs</a>
+                <a href="#contact">Contact</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
             </nav>
-
             <div id="about">
                 <div class="heading">
                     ASWINI MUTTINENI
@@ -305,7 +359,10 @@
                 <div>
                     <p>
                         I am <b>Aswini Muttineni</b> and pursuing my master's in Computer Science at University of
-                        NewHaven. I am committed to staying up-to-date on the latest industry trends and technologies, and I am always looking for new ways to improve my skills and knowledge. I hope that my passion for my interest and dedication to my profession will come through in my presentation and inspire you to pursue your own interests and goals.</p>
+                        NewHaven. I am committed to staying up-to-date on the latest industry trends and technologies,
+                        and I am always looking for new ways to improve my skills and knowledge. I hope that my passion
+                        for my interest and dedication to my profession will come through in my presentation and inspire
+                        you to pursue your own interests and goals.</p>
 
                 </div>
             </div>
@@ -331,14 +388,18 @@
                     <h3><b>Company: Cognizant Technology Solutions Pvt Ltd. </b> </h3>
                     <strong>Position: Associate Level</strong>
                     <ul>
-                        <li>I worked as an SAP Basis Consultant for 2.5 years as a role of production support. 
-                        <li>Our responsibilities typically include configuring, monitoring, tuning and troubleshooting the environment, as well as scheduling and running the TMS. SAP Basis consultants generally provide technical support and high-level leadership for SAP systems.</li>
+                        <li>I worked as an SAP Basis Consultant for 2.5 years as a role of production support.
+                        <li>Our responsibilities typically include configuring, monitoring, tuning and troubleshooting
+                            the environment, as well as scheduling and running the TMS. SAP Basis consultants generally
+                            provide technical support and high-level leadership for SAP systems.</li>
                         </li>
                     </ul>
                     <strong>Tools Used:</strong>
-                    <ul><li>SAP ERP</li>
+                    <ul>
+                        <li>SAP ERP</li>
                         <li>HANA STUDIO</li>
-                        <li>Visual Administrator, and NetWeaver Administrator tool</li></ul>
+                        <li>Visual Administrator, and NetWeaver Administrator tool</li>
+                    </ul>
                 </div>
             </div>
 
@@ -427,6 +488,17 @@
             </footer>
         </div>
     </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("navbar");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
 </body>
 
 </html>
